@@ -3,7 +3,7 @@ import { cores } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
-  height: 560px;
+  height: 384px;
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,10 +22,9 @@ export const Titulo = styled.h2`
   line-height: 42px;
   width: 100%;
   max-width: 580px;
-  height: 84px;
   text-align: center;
   margin-left: 414px;
-  margin-top: 236px;
+  margin-top: 150px;
   font-size: 36px;
 
   color: ${cores.vermelho};
