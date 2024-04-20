@@ -9,4 +9,5 @@ export const TagContainer = styled.div<Props>`
   font-weight: bold;
   padding: 6px 4px;
   display: inline-block;
+  margin-right: 8px;
 `

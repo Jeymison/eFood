@@ -38,4 +38,8 @@ export const Descricao = styled.p`
   margin-top: 8px;
   margin-left: 8px;
 `
-export const img = styled.img``
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+`
