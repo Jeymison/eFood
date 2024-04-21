@@ -2,35 +2,31 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Imagem = styled.div`
-  width: 100%;
-  height: 384px;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 163px;
   font-weight: bold;
+  align-items: center;
 
   .container {
-    position: relative;
-    padding-top: 340px;
+    max-width: 1024px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    margin: 0 auto;
   }
 `
-
-export const Titulo = styled.h2`
-  line-height: 42px;
-  width: 100%;
-  max-width: 580px;
-  text-align: center;
-  margin-left: 414px;
-  margin-top: 150px;
-  font-size: 36px;
-
+export const Titulo = styled.a`
+  margin-top: 39px;
+  font-size: 18px;
+  color: ${cores.vermelho};
+  text-decoration: none;
+`
+export const Titulo2 = styled.p`
+  margin-top: 39px;
+  font-size: 18px;
   color: ${cores.vermelho};
 `
 export const Img = styled.img`
-  margin-left: 621px;
   margin-top: 40px;
+  height: 57px;
   width: 125px;
 `
