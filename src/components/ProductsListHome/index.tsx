@@ -6,7 +6,7 @@ export type Props = {
   foods: Food[]
 }
 // aqui apliquei o models FOOD para criar a lista de foods
-const ProductsList = ({ foods }: Props) => (
+const ProductsListHome = ({ foods }: Props) => (
   <Container>
     <List>
       {foods.map((food) => (
@@ -23,4 +23,4 @@ const ProductsList = ({ foods }: Props) => (
   </Container>
 )
 
-export default ProductsList
+export default ProductsListHome

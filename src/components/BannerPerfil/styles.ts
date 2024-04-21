@@ -19,7 +19,6 @@ export const Imagem = styled.div`
     margin-left: 230px;
     font-weight: normal;
     padding-top: 50px;
-    max-width: 101px;
   }
 `
 
@@ -30,6 +29,5 @@ export const Titulo = styled.h2`
   font-size: 32px;
   margin-left: 60px;
   color: ${cores.branco};
-  font-weight: bold;
 `
 export const Tipo = styled.p``

@@ -1,9 +1,9 @@
 import Food from '../../Models/Food'
-import ProductsList from '../../components/ProductsListHome'
 
 import sushi from '../../assets/images/sushi.svg'
 import macarraoCamarao from '../../assets/images/macarraoCamarao.svg'
 import Hero from '../../components/HeroHome'
+import ProductsListHome from '../../components/ProductsListHome'
 
 const foodList: Food[] = [
   {
@@ -65,7 +65,7 @@ const foodList: Food[] = [
 const Home = () => (
   <>
     <Hero />
-    <ProductsList foods={foodList} />
+    <ProductsListHome foods={foodList} />
   </>
 )
 

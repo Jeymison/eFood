@@ -1,4 +1,4 @@
-//Criando o modelo de produto
+//Criando o modelo de produto home
 class Food {
   title: string
   description: string
