@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import Home from './Pages/Home'
 import Perfil from './Pages/Perfil'
+import Footer from './components/Footer'
 
 const Rotas = () => (
   <Routes>
@@ -21,6 +22,7 @@ function App() {
     <BrowserRouter>
       <GlobalCSS />
       <Rotas />
+      <Footer />
     </BrowserRouter>
   )
 }

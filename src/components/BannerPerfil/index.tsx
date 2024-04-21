@@ -1,4 +1,4 @@
-import { Imagem, Tipo, Titulo } from './styles'
+import { Imagem, Titulo } from './styles'
 import bannerPerfil from '../../assets/images/bannerMacarrao.svg'
 import textoItaliana from '../../assets/images/Italiana.svg'
 
