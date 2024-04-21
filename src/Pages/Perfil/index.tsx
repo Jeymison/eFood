@@ -1,10 +1,9 @@
 import Food from '../../Models/Food'
 import ProductsList from '../../components/ProductsListHome'
 
-import sushi from '../../assets/images/sushi.svg'
 import macarraoCamarao from '../../assets/images/macarraoCamarao.svg'
-import Hero from '../../components/HeroHome'
 import HeroPerfil from '../../components/HeroPerfil'
+import BannerPerfil from '../../components/BannerPerfil'
 
 const foodList: Food[] = [
   {
@@ -57,6 +56,7 @@ const foodList: Food[] = [
 const Perfil = () => (
   <>
     <HeroPerfil />
+    <BannerPerfil />
     <ProductsList foods={foodList} />
   </>
 )

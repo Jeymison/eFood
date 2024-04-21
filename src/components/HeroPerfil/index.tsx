@@ -5,7 +5,7 @@ import { Imagem, Img, Titulo, Titulo2 } from './styles'
 const HeroPerfil = () => (
   <Imagem style={{ backgroundImage: `url(${heroPerfil})` }}>
     <div className="container">
-      <Titulo>Restaurantes</Titulo>
+      <Titulo href="/">Restaurantes</Titulo>
       <Img src={logo} />
       <Titulo2>0 produto(s) no carrinho</Titulo2>
     </div>
