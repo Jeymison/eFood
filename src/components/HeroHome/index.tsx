@@ -2,7 +2,7 @@ import bannerHome from '../../assets/images/bannerHome.svg'
 import logo from '../../assets/images/logo.svg'
 import { Imagem, Img, Titulo } from './styles'
 
-const Banner = () => (
+const Hero = () => (
   <Imagem style={{ backgroundImage: `url(${bannerHome})` }}>
     <Img src={logo} />
     <div>
@@ -13,4 +13,4 @@ const Banner = () => (
   </Imagem>
 )
 
-export default Banner
+export default Hero
