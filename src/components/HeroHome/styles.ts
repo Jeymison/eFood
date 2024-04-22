@@ -4,33 +4,22 @@ import { cores } from '../../styles'
 export const Imagem = styled.div`
   width: 100%;
   height: 384px;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   font-weight: bold;
-
-  .container {
-    position: relative;
-    padding-top: 340px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
 `
 
-export const Titulo = styled.h2`
-  line-height: 42px;
-  width: 100%;
-  max-width: 580px;
+export const Titulo = styled.h4`
+  max-width: 539px;
   text-align: center;
-  margin-left: 414px;
-  margin-top: 150px;
+  margin-bottom: 40px;
   font-size: 36px;
-
   color: ${cores.vermelho};
 `
 export const Img = styled.img`
-  margin-left: 621px;
+  height: 57.5px;
   margin-top: 40px;
   width: 125px;
 `

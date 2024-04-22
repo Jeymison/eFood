@@ -5,11 +5,9 @@ import { Imagem, Img, Titulo } from './styles'
 const Hero = () => (
   <Imagem style={{ backgroundImage: `url(${bannerHome})` }}>
     <Img src={logo} />
-    <div>
-      <Titulo>
-        Viva experiências gastronômicas <br /> no conforto da sua casa
-      </Titulo>
-    </div>
+    <Titulo>
+      Viva experiências gastronômicas <br /> no conforto da sua casa
+    </Titulo>
   </Imagem>
 )
 

@@ -1,33 +1,25 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { TagContainer } from '../Tag/styles'
+import bannerPerfil from '../../assets/images/bannerCamaraoMacarrao.svg'
 
 export const Imagem = styled.div`
-  width: 100%;
-  height: 384px;
-  display: block;
+  height: 280px;
   background-repeat: no-repeat;
   background-size: cover;
 
-  .container {
-    max-width: 100%;
-    height: 384px;
-    background-color: rgba(0, 0, 0, 0.5);
+  h1 {
+    color: ${cores.branco};
+    font-size: 32px;
+    font-weight: 900;
+    padding-top: 156.5px;
+    margin-left: 171px;
   }
 
-  .span {
-    margin-left: 230px;
-    font-weight: normal;
-    padding-top: 50px;
+  h3 {
+    color: ${cores.branco};
+    font-size: 32px;
+    font-weight: 100;
+    padding-top: 25px;
+    margin-left: 171px;
   }
 `
-
-export const Titulo = styled.h2`
-  max-width: 676px;
-  text-align: center;
-  margin-top: 220px;
-  font-size: 32px;
-  margin-left: 60px;
-  color: ${cores.branco};
-`
-export const Tipo = styled.p``
