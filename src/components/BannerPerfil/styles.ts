@@ -7,8 +7,8 @@ export const Imagem = styled.div`
   height: 280px;
   width: 100%;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: 100%;
-
   align-items: center;
 
   h1 {
