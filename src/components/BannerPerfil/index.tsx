@@ -2,12 +2,12 @@ import { Imagem } from './styles'
 import bannerPerfil from '../../assets/images/bannerCamaraoMacarrao.svg'
 
 const BannerPerfil = () => (
-  <div className="container">
-    <Imagem style={{ backgroundImage: `url(${bannerPerfil})` }}>
+  <Imagem style={{ backgroundImage: `url(${bannerPerfil})` }}>
+    <div className="container">
       <h3>Italiana</h3>
       <h1>La Dolce Vita Trattoria</h1>
-    </Imagem>
-  </div>
+    </div>
+  </Imagem>
 )
 
 export default BannerPerfil

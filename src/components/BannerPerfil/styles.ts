@@ -3,12 +3,17 @@ import { cores } from '../../styles'
 import bannerPerfil from '../../assets/images/bannerCamaraoMacarrao.svg'
 
 export const Imagem = styled.div`
+  display: block;
   height: 280px;
+  width: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+
+  align-items: center;
 
   h1 {
     color: ${cores.branco};
+    height: 33.25px;
     font-size: 32px;
     font-weight: 900;
     padding-top: 156.5px;
