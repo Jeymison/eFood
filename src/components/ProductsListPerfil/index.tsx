@@ -1,9 +1,9 @@
-import cardPizzas from '../../Models/Perfil'
+import { Food } from '../../Pages/Home'
 import ProductPerfil from '../ProductPerfil'
 import { Container, List } from './styles'
 
-type Props = {
-  pizzas: cardPizzas[]
+export type Props = {
+  pizzas: Food[]
 }
 
 const ProductsListPerfil = ({ pizzas }: Props) => (
@@ -13,9 +13,9 @@ const ProductsListPerfil = ({ pizzas }: Props) => (
         {pizzas.map((pizzas) => (
           <ProductPerfil
             key={pizzas.id}
-            title={pizzas.title}
-            description={pizzas.description}
-            image={pizzas.image}
+            title={pizzas.titulo}
+            description={pizzas.descricao}
+            image={pizzas.capa}
           />
         ))}
       </List>

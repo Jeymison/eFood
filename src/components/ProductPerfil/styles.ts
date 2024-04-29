@@ -104,7 +104,6 @@ export const DescriptionModal = styled.p`
   line-height: 22px;
   margin-bottom: 16px;
 `
-
 export const CloseIconModal = styled.header`
   width: 16px;
   height: 16px;

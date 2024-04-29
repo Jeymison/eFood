@@ -1,14 +1,18 @@
-import { Link } from 'react-router-dom'
 import Button from '../Button'
 import star from '../../assets/images/star_favorite.svg'
 import { Card, Descricao, Infos, Titulo, Titulo2 } from './style'
 import Tag from '../Tag'
 
+type InfoItem = {
+  destacado: boolean
+  tipo: string
+}
+
 type Props = {
   title: string
   description: string
-  infos: string[]
-  nota: string
+  infos: InfoItem[]
+  nota: number
   image: string
 }
 
@@ -17,8 +21,10 @@ const Product = ({ title, description, infos, image, nota }: Props) => (
     <img src={image} alt={title} />
     {/* //Div abaixo e das infos do card que ficam em cima */}
     <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
+      {infos.map((info, index) => (
+        <Tag key={index}>{`${info.tipo}: ${
+          info.destacado ? 'Destacado' : 'Normal'
+        }`}</Tag>
       ))}
     </Infos>
     <div className="containerTop">
