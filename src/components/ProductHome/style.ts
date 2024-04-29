@@ -43,3 +43,10 @@ export const Infos = styled.div`
   top: 16px;
   right: 16px;
 `
+
+export const IMG = styled.img`
+  max-width: 472px;
+  width: 100%;
+  height: 217px;
+  object-fit: cover;
+`

@@ -14,27 +14,23 @@ import { useEffect, useState } from 'react'
 //   }
 // ]
 //Criando os tipos conforme API
-export type InfoItem = {
-  destacado: boolean
-  tipo: string
-}
+
 export type Food = {
   id: number
   titulo: string
-  infos: [InfoItem]
+  destacado?: boolean
+  tipo: string
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: [
-    {
-      foto: string
-      preco: string
-      id: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const Home = () => {
@@ -42,8 +38,8 @@ const Home = () => {
 
   //chamando a API
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/foodslist').then((res) =>
-      res.json().then((res) => setFoodList(res))
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes').then(
+      (res) => res.json().then((res) => setFoodList(res))
     )
   }, [])
 

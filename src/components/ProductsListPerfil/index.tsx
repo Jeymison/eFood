@@ -2,7 +2,7 @@ import { Food } from '../../Pages/Home'
 import ProductPerfil from '../ProductPerfil'
 import { Container, List } from './styles'
 
-export type Props = {
+type Props = {
   pizzas: Food[]
 }
 
@@ -12,10 +12,10 @@ const ProductsListPerfil = ({ pizzas }: Props) => (
       <List>
         {pizzas.map((pizzas) => (
           <ProductPerfil
-            key={pizzas.id}
-            title={pizzas.titulo}
-            description={pizzas.descricao}
-            image={pizzas.capa}
+            key={pizzas.cardapio.id}
+            title={pizzas.cardapio.nome}
+            description={pizzas.cardapio.descricao}
+            image={pizzas.cardapio.foto}
           />
         ))}
       </List>

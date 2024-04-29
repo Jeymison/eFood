@@ -4,7 +4,9 @@ import { cores } from '../../styles'
 export const Container = styled.footer`
   height: 298px;
   background-color: ${cores.bege};
+  align-items: center;
   text-align: center;
+  justify-conten: center;
 `
 export const Img = styled.img`
   width: 125px;
