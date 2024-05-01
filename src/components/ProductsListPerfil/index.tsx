@@ -13,12 +13,9 @@ const ProductsListPerfil = ({ pizzas }: Props) => (
         {pizzas.map((pizzas) => (
           <li key={pizzas.id}>
             <ProductPerfil
-              title={pizzas.cardapio}
-              description={pizzas.cardapio.descricao}
-              image={pizzas.cardapio.foto}
-              porcao={pizzas.cardapio.porcao}
-              preco={pizzas.cardapio.preco}
-              id={pizzas.cardapio.id}
+              title={pizzas.titulo}
+              description={pizzas.descricao}
+              image={pizzas.capa}
             />
           </li>
         ))}
