@@ -19,6 +19,9 @@ type Props = {
   title: string
   description: string
   image: string
+  porcao: string
+  preco: number
+  id: number
 }
 
 const ProductPerfil = ({ title, description, image }: Props) => {

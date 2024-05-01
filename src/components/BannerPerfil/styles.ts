@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import bannerPerfil from '../../assets/images/bannerCamaraoMacarrao.svg'
 
 export const Imagem = styled.div`
   display: block;

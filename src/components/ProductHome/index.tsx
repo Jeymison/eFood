@@ -3,6 +3,9 @@ import star from '../../assets/images/star_favorite.svg'
 import { Card, Descricao, IMG, Infos, Titulo, Titulo2 } from './style'
 import Tag from '../Tag'
 import { InfoItem } from '../ProductsListHome'
+import { Link } from 'react-router-dom'
+import { Food } from '../../Pages/Home'
+import { useEffect, useState } from 'react'
 
 type Props = {
   title: string
@@ -10,15 +13,17 @@ type Props = {
   infos: InfoItem[]
   nota: number
   image: string
+  id: number
 }
 
-const Product = ({ title, description, infos, image, nota }: Props) => {
+const Product = ({ title, description, infos, image, nota, id }: Props) => {
   const getDescription = (description: string) => {
     if (description.length > 308) {
       return description.slice(0, 305) + '...'
     }
     return description
   }
+
   return (
     <Card>
       <IMG src={image} alt={title} />
@@ -35,7 +40,7 @@ const Product = ({ title, description, infos, image, nota }: Props) => {
         </Titulo2>
       </div>
       <Descricao>{getDescription(description)}</Descricao>
-      <Button type="link" to="/perfil" title={'Saiba mais'}>
+      <Button to={`/perfil/${id}`} title={'Saiba mais'}>
         Saiba mais
       </Button>
     </Card>

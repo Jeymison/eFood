@@ -33,14 +33,16 @@ const ProductsList = ({ foods }: Props) => {
     <Container>
       <List>
         {foods.map((food) => (
-          <Product
-            key={food.id}
-            title={food.titulo}
-            description={food.descricao}
-            infos={getTags(food)}
-            image={food.capa}
-            nota={food.avaliacao}
-          />
+          <li key={food.id}>
+            <Product
+              id={food.id}
+              title={food.titulo}
+              description={food.descricao}
+              infos={getTags(food)}
+              image={food.capa}
+              nota={food.avaliacao}
+            />
+          </li>
         ))}
       </List>
     </Container>
