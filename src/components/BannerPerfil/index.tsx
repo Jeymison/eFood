@@ -1,25 +1,15 @@
-import { Imagem } from './styles'
-import bannerPerfil from '../../assets/images/bannerCamaraoMacarrao.svg'
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { Food } from '../../Pages/Home'
+import { Imagem, Titulo, TituloHead } from './styles'
+import { Restaurants } from '../../Pages/Home'
 
-const BannerPerfil = () => {
-  const { id } = useParams()
-
-  const [restaurant, setRestaurant] = useState<Food>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`).then(
-      (res) => res.json().then((res) => setRestaurant(res))
-    )
-  }, [id])
-
+export type Props = {
+  restaurant: Restaurants
+}
+const BannerPerfil = ({ restaurant }: Props) => {
   return (
-    <Imagem style={{ backgroundImage: `url(${restaurant?.capa})` }}>
+    <Imagem style={{ backgroundImage: `url(${restaurant.capa})` }}>
       <div className="container">
-        <h3>{restaurant?.tipo}</h3>
-        <h1>{restaurant?.titulo}</h1>
+        <TituloHead>{restaurant.tipo}</TituloHead>
+        <Titulo>{restaurant.titulo}</Titulo>
       </div>
     </Imagem>
   )

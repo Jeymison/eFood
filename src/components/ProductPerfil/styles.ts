@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { ButtonContainer } from '../Button/styles'
+import { Link } from 'react-router-dom'
 
 export const CardPerfil = styled.div`
   width: 320px;
@@ -9,6 +9,7 @@ export const CardPerfil = styled.div`
   margin-left: 171px;
   background-color: ${cores.vermelho};
   padding: 8px;
+  text-decoration: none;
 `
 
 export const Titulo = styled.h3`
@@ -36,6 +37,11 @@ export const Button = styled.button`
   border: none;
   font-weight: bold;
 `
+export const IMG = styled.img`
+  max-width: 304px;
+  width: 100%;
+  height: 167px;
+`
 
 // modal
 
@@ -48,6 +54,7 @@ export const Modal = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 
   &.visivel {
     display: flex;

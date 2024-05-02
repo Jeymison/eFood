@@ -3,9 +3,6 @@ import star from '../../assets/images/star_favorite.svg'
 import { Card, Descricao, IMG, Infos, Titulo, Titulo2 } from './style'
 import Tag from '../Tag'
 import { InfoItem } from '../ProductsListHome'
-import { Link } from 'react-router-dom'
-import { Food } from '../../Pages/Home'
-import { useEffect, useState } from 'react'
 
 type Props = {
   title: string
@@ -13,7 +10,7 @@ type Props = {
   infos: InfoItem[]
   nota: number
   image: string
-  id: number
+  id: string
 }
 
 const Product = ({ title, description, infos, image, nota, id }: Props) => {
@@ -40,7 +37,7 @@ const Product = ({ title, description, infos, image, nota, id }: Props) => {
         </Titulo2>
       </div>
       <Descricao>{getDescription(description)}</Descricao>
-      <Button to={`/perfil/${id}`} title={'Saiba mais'}>
+      <Button to={id} type="link" title={'Saiba mais'}>
         Saiba mais
       </Button>
     </Card>

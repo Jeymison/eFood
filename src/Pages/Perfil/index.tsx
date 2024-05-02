@@ -1,52 +1,29 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import HeroPerfil from '../../components/HeroPerfil'
 import BannerPerfil from '../../components/BannerPerfil'
 import ProductsListPerfil from '../../components/ProductsListPerfil'
-import { useEffect, useState } from 'react'
-import { Food } from '../Home'
+import { Restaurants } from '../Home'
 
-export const Perfil = () => {
-  const [italiana, setItaliana] = useState<Food[]>([])
-  const [arabes, setIArabes] = useState<Food[]>([])
-  const [sushi, setSushi] = useState<Food[]>([])
-  const [lusitano, setLusitano] = useState<Food[]>([])
-  const [pizza, setPizza] = useState<Food[]>([])
-  const [terra, setTerra] = useState<Food[]>([])
+const Perfil = () => {
+  const { id } = useParams()
+
+  const [restaurant, setRestaurant] = useState<Restaurants>()
 
   useEffect(() => {
-    fetch(
-      'https://fake-api-tau.vercel.app/api/efood/restaurantes/perfil/1'
-    ).then((res) => res.json().then((res) => setItaliana(res)))
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`).then(
+      (res) => res.json().then((res) => setRestaurant(res))
+    )
+  }, [id])
 
-    fetch(
-      'https://fake-api-tau.vercel.app/api/efood/restaurantes/perfil/2'
-    ).then((res) => res.json().then((res) => setIArabes(res)))
-
-    fetch(
-      'https://fake-api-tau.vercel.app/api/efood/restaurantes/perfil/3'
-    ).then((res) => res.json().then((res) => setSushi(res)))
-
-    fetch(
-      'https://fake-api-tau.vercel.app/api/efood/restaurantes/perfil/4'
-    ).then((res) => res.json().then((res) => setLusitano(res)))
-
-    fetch(
-      'https://fake-api-tau.vercel.app/api/efood/restaurantes/perfil/5'
-    ).then((res) => res.json().then((res) => setPizza(res)))
-
-    fetch(
-      'https://fake-api-tau.vercel.app/api/efood/restaurantes/perfil/6'
-    ).then((res) => res.json().then((res) => setTerra(res)))
-  }, [])
+  if (!restaurant) {
+    return <h3>Loading...</h3>
+  }
   return (
     <>
       <HeroPerfil />
-      <BannerPerfil />
-      <ProductsListPerfil pizzas={italiana} />
-      <ProductsListPerfil pizzas={arabes} />
-      <ProductsListPerfil pizzas={sushi} />
-      <ProductsListPerfil pizzas={lusitano} />
-      <ProductsListPerfil pizzas={pizza} />
-      <ProductsListPerfil pizzas={terra} />
+      <BannerPerfil restaurant={restaurant} />
+      <ProductsListPerfil cardapios={restaurant} />
     </>
   )
 }

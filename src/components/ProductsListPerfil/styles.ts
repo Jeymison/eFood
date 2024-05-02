@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
+import { Button } from '../ProductPerfil/styles'
 
 export const Container = styled.div`
   max-width: 1024px;

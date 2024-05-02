@@ -1,4 +1,4 @@
-import { Food } from '../../Pages/Home'
+import { Restaurants } from '../../Pages/Home'
 import Product from '../ProductHome'
 import { Container, List } from './styles'
 
@@ -8,11 +8,11 @@ export type InfoItem = {
 }
 
 type Props = {
-  foods: Food[]
+  foods: Restaurants[]
 }
 
 const ProductsList = ({ foods }: Props) => {
-  const getTags = (food: Food): InfoItem[] => {
+  const getTags = (food: Restaurants): InfoItem[] => {
     const tags: InfoItem[] = []
 
     if (food.destacado) {
@@ -33,16 +33,15 @@ const ProductsList = ({ foods }: Props) => {
     <Container>
       <List>
         {foods.map((food) => (
-          <li key={food.id}>
-            <Product
-              id={food.id}
-              title={food.titulo}
-              description={food.descricao}
-              infos={getTags(food)}
-              image={food.capa}
-              nota={food.avaliacao}
-            />
-          </li>
+          <Product
+            key={food.id}
+            id={`/cardapio/${food.id}`}
+            title={food.titulo}
+            description={food.descricao}
+            infos={getTags(food)}
+            image={food.capa}
+            nota={food.avaliacao}
+          />
         ))}
       </List>
     </Container>
