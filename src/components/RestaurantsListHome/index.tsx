@@ -1,5 +1,5 @@
 import { Restaurants } from '../../Pages/Home'
-import Product from '../ProductHome'
+import Product from '../RestaurantsHome'
 import { Container, List } from './styles'
 
 export type InfoItem = {

@@ -2,7 +2,7 @@ import Button from '../Button'
 import star from '../../assets/images/star_favorite.svg'
 import { Card, Descricao, IMG, Infos, Titulo, Titulo2 } from './style'
 import Tag from '../Tag'
-import { InfoItem } from '../ProductsListHome'
+import { InfoItem } from '../RestaurantsListHome'
 
 type Props = {
   title: string

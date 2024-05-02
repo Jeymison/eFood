@@ -1,5 +1,5 @@
 import { Restaurants } from '../../Pages/Home'
-import ProductPerfil from '../ProductPerfil'
+import ProductPerfil from '../CardapioPerfil'
 import { Container, List } from './styles'
 
 type Props = {

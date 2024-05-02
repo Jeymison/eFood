@@ -1,5 +1,5 @@
 import Hero from '../../components/HeroHome'
-import ProductsListHome from '../../components/ProductsListHome'
+import ProductsListHome from '../../components/RestaurantsListHome'
 import { useEffect, useState } from 'react'
 
 //Criando os tipos conforme API
