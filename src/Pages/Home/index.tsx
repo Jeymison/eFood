@@ -1,4 +1,3 @@
-import Footer from '../../components/Footer'
 import Hero from '../../components/HeroHome'
 import ProductsListHome from '../../components/ProductsListHome'
 import { useEffect, useState } from 'react'

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import fechar from '../../assets/images/close.svg'
-import pizzaPopUp from '../../assets/images/pizzaPopUp.svg'
 import {
   Button,
   CardPerfil,
@@ -26,6 +25,7 @@ type Props = {
 
 const ProductPerfil = ({ title, description, image, porcao, preco }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
+
   const getDescription = (description: string) => {
     if (description.length > 110) {
       return description.slice(0, 107) + '...'

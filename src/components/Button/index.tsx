@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ButtonContainer } from './styles'
 
 export type Props = {

@@ -17,7 +17,7 @@ const Perfil = () => {
   }, [id])
 
   if (!restaurant) {
-    return <h3>Loading...</h3>
+    return <h3>Carregando...</h3>
   }
   return (
     <>

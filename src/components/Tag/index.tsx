@@ -1,6 +1,5 @@
 import { TagContainer } from './styles'
 
-//Exportei para styles.ts
 export type Props = {
   size?: 'small' | 'big'
   children: string
