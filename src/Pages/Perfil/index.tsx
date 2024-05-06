@@ -4,28 +4,22 @@ import HeroPerfil from '../../components/HeroPerfil'
 import BannerPerfil from '../../components/BannerPerfil'
 import ProductsListPerfil from '../../components/CardapioListPerfil'
 import { Restaurants } from '../Home'
+import { useGetCardapioRestaurantsQuery } from '../../services/api'
 
 const Perfil = () => {
   const { id } = useParams()
+  const { data: cardapioRestaurants } = useGetCardapioRestaurantsQuery(id!)
 
-  const [restaurant, setRestaurant] = useState<Restaurants>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`).then(
-      (res) => res.json().then((res) => setRestaurant(res))
+  if (cardapioRestaurants) {
+    return (
+      <>
+        <HeroPerfil />
+        <BannerPerfil restaurant={cardapioRestaurants} />
+        <ProductsListPerfil cardapios={cardapioRestaurants} />
+      </>
     )
-  }, [id])
-
-  if (!restaurant) {
-    return <h3>Carregando...</h3>
   }
-  return (
-    <>
-      <HeroPerfil />
-      <BannerPerfil restaurant={restaurant} />
-      <ProductsListPerfil cardapios={restaurant} />
-    </>
-  )
+  return <h4>Carregando...</h4>
 }
 
 export default Perfil

@@ -1,6 +1,7 @@
 import Hero from '../../components/HeroHome'
 import ProductsListHome from '../../components/RestaurantsListHome'
 import { useEffect, useState } from 'react'
+import { useGetFeatureRestaurantsQuery } from '../../services/api'
 
 //Criando os tipos conforme API
 
@@ -25,21 +26,17 @@ export type Restaurants = {
 }
 
 const Home = () => {
-  const [foodlist, setFoodList] = useState<Restaurants[]>([])
+  const { data: featureRestaurants } = useGetFeatureRestaurantsQuery()
 
-  //chamando a API Home
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes').then(
-      (res) => res.json().then((res) => setFoodList(res))
+  if (featureRestaurants) {
+    return (
+      <>
+        <Hero />
+        <ProductsListHome foods={featureRestaurants} />
+      </>
     )
-  }, [])
-
-  return (
-    <>
-      <Hero />
-      <ProductsListHome foods={foodlist} />
-    </>
-  )
+  }
+  return <h4>Carregando...</h4>
 }
 
 export default Home
