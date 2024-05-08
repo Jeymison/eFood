@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Imagem = styled.header`
   height: 186px;
@@ -19,14 +19,27 @@ export const Titulo = styled.a`
   margin-bottom: 82px;
   color: ${cores.vermelho};
   text-decoration: none;
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-right: 10px;
+  }
 `
-export const Titulo2 = styled.p`
+export const CartButton = styled.p`
   margin-top: 59px;
   font-size: 18px;
   color: ${cores.vermelho};
+  cursor: pointer;
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-left: 10px;
+  }
 `
 export const Img = styled.img`
   width: 125px;
   height: 57.5px;
   margin-top: 39px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 50%;
+    height: 50%;
+    margin-top: 6%;
+  }
 `

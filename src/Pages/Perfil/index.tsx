@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import HeroPerfil from '../../components/HeroPerfil'
 import BannerPerfil from '../../components/BannerPerfil'
 import ProductsListPerfil from '../../components/CardapioListPerfil'
-import { Restaurants } from '../Home'
 import { useGetCardapioRestaurantsQuery } from '../../services/api'
 
 const Perfil = () => {

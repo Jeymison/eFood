@@ -5,7 +5,13 @@ export const cores = {
   bege: '#FFEBD9',
   amarelo: '#FFB930',
   branco: '#fff',
-  branco2: '#FFF8F2'
+  branco2: '#FFF8F2',
+  preto: '#000'
+}
+
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px'
 }
 
 export const GlobalCSS = createGlobalStyle`
@@ -29,5 +35,9 @@ body {
 max-width: 1366px;
 width: 100%;
 margin: 0 auto;
+
+@media (max-width: ${breakpoints.desktop}) {
+  max-width: 80%;
+}
 }
 `

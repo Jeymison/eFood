@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const CardPerfil = styled.div`
   width: 320px;
@@ -35,6 +35,7 @@ export const Button = styled.button`
   height: 24px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 `
 export const IMG = styled.img`
   max-width: 304px;
@@ -85,11 +86,19 @@ export const ModalContent = styled.div`
     line-height: 16.41px;
     padding: 7px 4px auto;
     margin: 0;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      margin-top: 50px;
+    }
   }
 `
 
 export const PizzaImgmodal = styled.img`
-  padding: 32px 24px;
+  padding: 32px 32px 32px 24px;
+  height: 280px;
+  max-width: 280px;
+  width: 100%;
+  object-fit: cover;
 `
 export const ContainerModal = styled.div`
   width: 100%;

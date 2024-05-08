@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Imagem = styled.div`
   display: block;
@@ -14,6 +14,10 @@ export const Imagem = styled.div`
   .container {
     position: relative;
     z-index: 1;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    background-size: cover;
   }
 
   &::after {
@@ -33,6 +37,11 @@ export const Titulo = styled.h1`
   font-weight: 900;
   padding-top: 156.5px;
   margin-left: 171px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-left: 10%;
+    padding-top: 40%;
+  }
 `
 
 export const TituloHead = styled.h3`
@@ -41,4 +50,8 @@ export const TituloHead = styled.h3`
   font-weight: 100;
   padding-top: 25px;
   margin-left: 171px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-left: 10%;
+  }
 `
