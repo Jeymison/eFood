@@ -1,6 +1,5 @@
 import Hero from '../../components/HeroHome'
 import ProductsListHome from '../../components/RestaurantsListHome'
-import { useEffect, useState } from 'react'
 import { useGetFeatureRestaurantsQuery } from '../../services/api'
 
 //Criando os tipos conforme API

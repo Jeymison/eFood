@@ -9,8 +9,8 @@ export type Props = {
 }
 
 //Botao dos cards
-const Button = ({ type = 'link', to, children }: Props) => (
-  <ButtonContainer type={type} to={to as string}>
+const Button = ({ type = 'link', to, children, onClick }: Props) => (
+  <ButtonContainer onClick={onClick} type={type} to={to as string}>
     {children}
   </ButtonContainer>
 )

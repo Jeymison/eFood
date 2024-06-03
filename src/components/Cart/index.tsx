@@ -13,9 +13,11 @@ import { RootReducer } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 import { close, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../CardapioPerfil'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -32,6 +34,12 @@ const Cart = () => {
   // Funcao para remover itens do carrinho
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  //Funcao para ir para proxima tela/ Button
+  const goToCheckout = () => {
+    navigate('/checkout')
+    closeCart()
   }
 
   return (
@@ -56,7 +64,12 @@ const Cart = () => {
           <TextoPrices>Valor total</TextoPrices>
           <Prices>{formataPreco(getTotalPrice())}</Prices>
         </ContainerPrices>
-        <Button type="button" title="Clique aqui para continuar com a compra">
+        <Button
+          to="/checkout"
+          onClick={goToCheckout}
+          type="button"
+          title="Clique aqui para continuar com a compra"
+        >
           Continuar com a entrega
         </Button>
       </SideBar>
