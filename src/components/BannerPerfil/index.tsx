@@ -1,8 +1,7 @@
 import { Imagem, Titulo, TituloHead } from './styles'
-import { Restaurants } from '../../Pages/Home'
 
 export type Props = {
-  restaurant: Restaurants
+  restaurant: Restaurant
 }
 const BannerPerfil = ({ restaurant }: Props) => {
   return (

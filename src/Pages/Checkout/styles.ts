@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
+type inputGroupProps = {
+  maxWidth?: string
+}
+
 export const CardOverlay = styled.div`
   position: absolute;
   top: 0;
@@ -10,18 +14,30 @@ export const CardOverlay = styled.div`
   background-color: ${cores.preto};
   opacity: 0.8;
 `
-export const CardSideBar = styled.aside`
+export const CardSideBar = styled.div`
   background-color: ${cores.vermelho};
   z-index: 1;
   padding: 32px 8px 0 8px;
   max-width: 360px;
   width: 100%;
+  color: ${cores.bege};
+  position: fixed; /* Adicione esta linha para fixar o componente */
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+
+  &.is-open {
+    display: flex;
+  }
 
   h2 {
     font-size: 16px;
     line-height: 18px;
     font-weight: bold;
-    color: ${cores.bege};
     margin-bottom: 16px;
   }
 
@@ -37,19 +53,30 @@ export const CardSideBar = styled.aside`
     font-size: 14px;
     line-height: 16px;
     text-align: center;
+    cursor: pointer;
   }
 
   button:first-of-type {
     margin-top: 24px;
   }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+  }
 `
+export const buttonCheckout = styled.button``
+
 export const Row = styled.div`
   display: flex;
   column-gap: 34px;
 `
 
-export const InputGroup = styled.div`
+export const InputGroup = styled.div<inputGroupProps>`
   flex: auto;
+
+  max-width: ${(props) => props.maxWidth || 'auto'};
 
   label {
     font-size: 14px;

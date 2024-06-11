@@ -29,7 +29,9 @@ export const CartButton = styled.p`
   color: ${cores.vermelho};
   cursor: pointer;
   @media (max-width: ${breakpoints.tablet}) {
-    margin-left: 10px;
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden;
+    margin-left: 8px;
   }
 `
 export const Img = styled.img`

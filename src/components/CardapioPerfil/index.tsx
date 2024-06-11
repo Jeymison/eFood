@@ -1,5 +1,9 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import fechar from '../../assets/images/close.svg'
+import { add, open } from '../../store/reducers/cart'
+
 import {
   Button,
   CardPerfil,
@@ -14,23 +18,41 @@ import {
   TitleModal,
   Titulo
 } from './styles'
-import { useDispatch } from 'react-redux'
-import { add, open } from '../../store/reducers/cart'
-import { Restaurants } from '../../Pages/Home'
+import Card from '../Card'
 
-type Props = {
-  items: Restaurants
+export type Props = {
+  items: Restaurant
+  pedido: Pedido
 }
 
-export const formataPreco = (preco = 0) => {
+export const formataPreco = (preco: number) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   }).format(preco)
 }
 
-const ProductPerfil = ({ items }: Props) => {
-  const [modalAberto, setModalAberto] = useState(false)
+const ProductPerfil = ({ items, pedido }: Props) => {
+  const [showModal, setShowModal] = useState(false)
+  const [foodTitle, setfoodTitle] = useState('')
+  const [foodDescription, setfoodDescription] = useState('')
+  const [foodPhoto, setfoodPhoto] = useState('')
+  const [foodPhotoAlt, setfoodPhotoAlt] = useState('')
+  const [foodServe, setfoodServe] = useState('')
+  const [foodPrice, setfoodPrice] = useState(0)
+  const [foodId, setFoodId] = useState(0)
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    pedido.id = foodId
+    pedido.nome = foodTitle
+    pedido.foto = foodPhoto
+    pedido.preco = foodPrice
+    dispatch(add(items))
+    setShowModal(false)
+    dispatch(open())
+  }
 
   const getDescription = (description: string) => {
     if (description.length > 110) {
@@ -39,26 +61,30 @@ const ProductPerfil = ({ items }: Props) => {
     return description
   }
 
-  const dispatch = useDispatch()
-
-  const addToCart = () => {
-    dispatch(add(items))
-    dispatch(open())
-  }
-
   return (
     <>
       {items.cardapio.map((item) => (
-        <>
-          <CardPerfil key={item.id}>
+        <div key={item.id}>
+          <CardPerfil
+            onClick={() => {
+              setShowModal(true)
+              setfoodTitle(item.nome)
+              setfoodDescription(item.descricao)
+              setfoodServe(item.porcao)
+              setfoodPrice(item.preco)
+              setfoodPhotoAlt(item.nome)
+              setfoodPhoto(item.foto)
+              setFoodId(item.id)
+            }}
+          >
             <IMG src={item.foto} alt={item.nome} />
             <div>
               <Titulo>{item.nome}</Titulo>
             </div>
             <Description>{getDescription(item.descricao)}</Description>
-            <Button onClick={() => setModalAberto(true)}>Mais detalhes</Button>
+            <Button>Mais detalhes</Button>
           </CardPerfil>
-          <Modal className={modalAberto ? 'visivel' : ''}>
+          <Modal className={showModal ? 'visivel' : ''}>
             <ModalContent>
               <PizzaImgmodal src={item.foto} alt={item.nome} />
               <ContainerModal>
@@ -76,16 +102,13 @@ const ProductPerfil = ({ items }: Props) => {
                 <img
                   src={fechar}
                   alt="Icone de fechar"
-                  onClick={() => setModalAberto(false)}
+                  onClick={() => setShowModal(false)}
                 />
               </CloseIconModal>
             </ModalContent>
-            <div
-              onClick={() => setModalAberto(false)}
-              className="overlay"
-            ></div>
+            <div onClick={() => setShowModal(false)} className="overlay"></div>
           </Modal>
-        </>
+        </div>
       ))}
     </>
   )

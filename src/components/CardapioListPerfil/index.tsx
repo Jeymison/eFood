@@ -1,9 +1,8 @@
-import { Restaurants } from '../../Pages/Home'
 import ProductPerfil from '../CardapioPerfil'
 import { Container, List } from './styles'
 
 type Props = {
-  cardapios: Restaurants
+  cardapios: Restaurant
 }
 
 const ProductsListPerfil = ({ cardapios }: Props) => (
@@ -22,6 +21,12 @@ const ProductsListPerfil = ({ cardapios }: Props) => (
                 descricao: pratos.descricao,
                 capa: '',
                 cardapio: [pratos]
+              }}
+              pedido={{
+                id: 0,
+                nome: '',
+                foto: '',
+                preco: 0
               }}
             />
           </li>

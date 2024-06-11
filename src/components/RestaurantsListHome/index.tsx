@@ -1,4 +1,3 @@
-import { Restaurants } from '../../Pages/Home'
 import Product from '../RestaurantsHome'
 import { Container, List } from './styles'
 
@@ -8,11 +7,11 @@ export type InfoItem = {
 }
 
 type Props = {
-  foods: Restaurants[]
+  foods: Restaurant[]
 }
 
 const ProductsList = ({ foods }: Props) => {
-  const getTags = (food: Restaurants): InfoItem[] => {
+  const getTags = (food: Restaurant): InfoItem[] => {
     const tags: InfoItem[] = []
 
     if (food.destacado) {

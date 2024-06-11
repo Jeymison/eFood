@@ -112,3 +112,9 @@ export const CartItem = styled.li`
     margin-right: 8px;
   }
 `
+export const CartStage = styled.div`
+  display: block;
+  &.is-checkout {
+    display: none;
+  }
+`

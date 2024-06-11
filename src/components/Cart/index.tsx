@@ -2,6 +2,7 @@ import Button from '../Button'
 import {
   CartContainer,
   CartItem,
+  CartStage,
   ContainerPrices,
   Overlay,
   Prices,
@@ -9,69 +10,66 @@ import {
   TextoPrices
 } from './styles'
 
-import { RootReducer } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
-import { close, remove } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
+import { close, remove, startCheckout } from '../../store/reducers/cart'
 import { formataPreco } from '../CardapioPerfil'
-import { useNavigate } from 'react-router-dom'
+import Checkout from '../../Pages/Checkout'
 
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
-  const navigate = useNavigate()
+  const { isOpen, pedido, isAddress, isCart } = useSelector(
+    (state: RootReducer) => state.cart
+  )
 
   const dispatch = useDispatch()
 
-  const closeCart = () => {
+  const openCart = () => {
     dispatch(close())
+  }
+
+  const activeCheckout = () => {
+    if (getTotalPrice() > 0) {
+      dispatch(startCheckout())
+    } else {
+      alert('Não há itens no carrinho')
+    }
   }
 
   // Calculo total do carrinho
   const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.cardapio[0].preco)
+    return pedido.reduce((acumulador, valorAtual) => {
+      return (acumulador += valorAtual.preco)
     }, 0)
   }
+
   // Funcao para remover itens do carrinho
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
 
-  //Funcao para ir para proxima tela/ Button
-  const goToCheckout = () => {
-    navigate('/checkout')
-    closeCart()
-  }
-
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
+      <Overlay onClick={openCart} />
       <SideBar>
+        <CartStage className={!isCart ? 'is-checkout' : ''} />
         <ul>
-          {items.map((item) =>
-            item.cardapio.map((foods) => (
-              <CartItem key={foods.id}>
-                <img src={foods.foto} />
-                <div>
-                  <h3>{foods.nome}</h3>
-                  <span>{formataPreco(foods.preco)}</span>
-                </div>
-                <button onClick={() => removeItem(item.id)} type="button" />
-              </CartItem>
-            ))
-          )}
+          {pedido.map((item) => (
+            <CartItem key={item.id}>
+              <img src={item.foto} />
+              <div>
+                <h3>{item.nome}</h3>
+                <span>{formataPreco(item.preco)}</span>
+              </div>
+              <button onClick={() => removeItem(item.id)} type="button" />
+            </CartItem>
+          ))}
         </ul>
         <ContainerPrices>
           <TextoPrices>Valor total</TextoPrices>
           <Prices>{formataPreco(getTotalPrice())}</Prices>
         </ContainerPrices>
-        <Button
-          to="/checkout"
-          onClick={goToCheckout}
-          type="button"
-          title="Clique aqui para continuar com a compra"
-        >
-          Continuar com a entrega
-        </Button>
+        <Button onClick={activeCheckout}>Continuar com a entrega</Button>
+        <Checkout checkoutStart={isAddress} priceTotal={getTotalPrice()} />
       </SideBar>
     </CartContainer>
   )
